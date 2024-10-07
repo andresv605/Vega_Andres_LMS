@@ -1,1 +1,2 @@
 # Vega_Andres_LMS
+The purpose of this first phase was to update the contents of the LMS with a new check out and check in function while still remaining console-based. A isCheckedout field was added to the Book class along with check out and check in methods. Methods for checking out books and checking in were added to the Library class. The LibraryManagementSystem now cycles through each option of adding, removing, check out, and check in where the user can decline the option if it is not needed instead of having a menu to pick from as it did in the first version. 
