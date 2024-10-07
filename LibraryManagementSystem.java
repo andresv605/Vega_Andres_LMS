@@ -4,8 +4,8 @@ package cen3024c;
  * CEN 3024 - Software Development 1
  * October 6, 2024
  * LibraryManagementSystem.java
- * This class contains the main method. It processes adding/removing books, loads books from the file, prints the collection,
- * and processes checking out/checking in books.
+ * This class contains the main method. It processes adding/removing books, loads books from the file,
+ * processes checking out/checking in books, and prints the collection after each step is completed.
  */
 
 import java.io.BufferedReader;
@@ -15,6 +15,12 @@ import java.util.Scanner;
 
 
 public class LibraryManagementSystem {
+    /**
+     * method: main
+     * parameters: none
+     * return: n/a
+     * purpose: Prints each possible operation for the user and processes the request
+     */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Library library = new Library();
@@ -87,7 +93,12 @@ public class LibraryManagementSystem {
         scanner.close();
     }
 
-    //reads file and adds book to the library collection
+    /**
+     * method: loadBooksFromFile
+     * parameters: Library, String fileName
+     * return: n/a
+     * purpose: Reads file and adds book to the library collection
+     */
     private static void loadBooksFromFile(Library library, String fileName) {
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
             String line;
