@@ -4,7 +4,7 @@ package cen3024c;
  * CEN 3024 - Software Development 1
  * October 6, 2024
  * Library.java
- * This class manages the collection adding books from a file, removing books, and listing the books.
+ * This class manages the collection adding books, removing books from ID or title, checking out/in, and listing the books.
  */
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -19,18 +19,18 @@ public class Library {
     }
 
     /**
-     * method: addBooksFromFile
-     * parameters: String filename
+     * method: addBook
+     * parameters: Book
      * return: n/a
-     * purpose: Reads text file and adds book to the collection
+     * purpose: Adds book to list
      */
     public void addBook(Book book){
         books.add(book);
     }
     /**
-     * method: removeBook
+     * method: removeBookById
      * parameters: int id
-     * return: n/a
+     * return: true or false based on execution
      * purpose: Removes book with matching ID
      */
     public boolean removeBookById(int id){
@@ -44,7 +44,12 @@ public class Library {
         }
         return false;
     }
-
+    /**
+     * method: removeBookByTitle
+     * parameters: String title
+     * return: true or false based on execution
+     * purpose: Removes book with matching title
+     */
     public boolean removeBookByTitle(String title){
         Iterator<Book> iterator = books.iterator();
         while (iterator.hasNext()) {
@@ -57,8 +62,12 @@ public class Library {
         }
         return false;
     }
-
-    //check out book by title
+    /**
+     * method: checkOutBook
+     * parameters: String title
+     * return: true or false based on execution
+     * purpose: Checks out book with matching title
+     */
     public boolean checkOutBook(String title){
         for (Book book : books) {
             if (book.getTitle().equalsIgnoreCase(title.trim()) && !book.isCheckedOut()) {
@@ -69,7 +78,12 @@ public class Library {
         return false;
     }
 
-    //check in book by title
+    /**
+     * method: checkInBook
+     * parameters: String title
+     * return: true or false based on execution
+     * purpose: Checks in book with matching title
+     */
     public boolean checkInBook(String title){
         for (Book book : books) {
             if (book.getTitle().equalsIgnoreCase(title.trim()) && book.isCheckedOut()) {
@@ -82,7 +96,7 @@ public class Library {
 
 
     /**
-     * method: listBooks
+     * method: printBooks
      * parameters: none
      * return: n/a
      * purpose: Lists books in the collection
